@@ -50,14 +50,13 @@ let getUser = async (req, res, next) => {
 
 let putUser = async (req, res, next) => {
   try {
-    let { username, email, avatar } = req.body;
+    let { username, email } = req.body;
 
     let data = await userModel.findByIdAndUpdate(
       req.user.id,
       {
         username,
         email,
-        avatar,
       },
       { new: true },
     );
